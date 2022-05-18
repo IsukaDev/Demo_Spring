@@ -2,9 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Item;
 import com.example.demo.service.ItemsService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +16,10 @@ public class BasicController {
 		this.itemsService = itemsService;
 	}
 
+	@GetMapping(value = "/{id}")
+	public Item getOne(@PathVariable("id") Long id) {
+		return this.itemsService.getItem(id);
+	}
 	@GetMapping
 	public List<Item> getAll() {
 		return this.itemsService.listAll();

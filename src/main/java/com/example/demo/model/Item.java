@@ -14,15 +14,6 @@ public class Item {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	public Item(String name, Long id) {
-		this.name = name;
-		this.id = id;
-	}
-
-	public Item() {
-
-	}
-
 	public Long getId() {
 		return this.id;
 	}

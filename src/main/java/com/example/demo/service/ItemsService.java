@@ -1,7 +1,9 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Item;
+import com.example.demo.repository.ItemRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +11,20 @@ import java.util.List;
 @Service
 public class ItemsService {
 
-	public List<Item> listAll() {
-		List<Item> items = new ArrayList<>();
-		items.add(new Item("book", 12L));
-		items.add(new Item("library", 34L));
-		items.add(new Item("computer", 42L));
+	private final ItemRepository itemRepository;
 
-		return items;
+	public ItemsService(ItemRepository itemRepository) {
+		this.itemRepository = itemRepository;
+	}
+
+	public List<Item> listAll() {
+		return this.itemRepository.findAll();
+	}
+
+	public Item getItem(Long id) {
+		return this.itemRepository.findById(id).orElse(null);
+	}
+
 	}
 
 }
