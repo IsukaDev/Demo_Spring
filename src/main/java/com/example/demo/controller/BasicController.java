@@ -20,9 +20,15 @@ public class BasicController {
 	public Item getOne(@PathVariable("id") Long id) {
 		return this.itemsService.getItem(id);
 	}
+
 	@GetMapping
 	public List<Item> getAll() {
 		return this.itemsService.listAll();
+	}
+
+	@PostMapping
+	public  List<Item> persistItems(@RequestBody List<String> names){
+		return this.itemsService.saveItemsNames(names);
 	}
 
 }

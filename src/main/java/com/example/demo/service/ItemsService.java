@@ -25,6 +25,17 @@ public class ItemsService {
 		return this.itemRepository.findById(id).orElse(null);
 	}
 
+	@Transactional
+	public List<Item> saveItemsNames(List<String> names) {
+		List<Item> itemsToSave;
+		itemsToSave = new ArrayList<>();
+		for (String name : names) {
+			Item item = new Item();
+			item.setName(name);
+			itemsToSave.add(item);
+		}
+		this.itemRepository.saveAll(itemsToSave);
+		return itemsToSave;
 	}
 
 }
