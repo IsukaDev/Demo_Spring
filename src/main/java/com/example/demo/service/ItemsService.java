@@ -14,7 +14,7 @@ public class ItemsService {
 		items.add(new Item("book", 12L));
 		items.add(new Item("library", 34L));
 		items.add(new Item("computer", 42L));
-		
+
 		return items;
 	}
 
