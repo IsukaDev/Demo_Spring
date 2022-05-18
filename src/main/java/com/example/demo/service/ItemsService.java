@@ -11,8 +11,10 @@ public class ItemsService {
 
 	public List<Item> listAll() {
 		List<Item> items = new ArrayList<>();
-		items.add(new Item("book"));
-		items.add(new Item("library"));
+		items.add(new Item("book", 12L));
+		items.add(new Item("library", 34L));
+		items.add(new Item("computer", 42L));
+		
 		return items;
 	}
 
