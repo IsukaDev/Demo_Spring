@@ -38,4 +38,14 @@ public class ItemsService {
 		return itemsToSave;
 	}
 
+	public List<Item> listByName(String name) {
+		List<Item> matchingItems = new ArrayList<>();
+		for (Item item : listAll()){
+			if (item.getName().equals(name)){
+				matchingItems.add(item);
+			}
+		}
+		return  matchingItems;
+	}
+
 }

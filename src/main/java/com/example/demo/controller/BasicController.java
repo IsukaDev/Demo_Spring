@@ -22,8 +22,13 @@ public class BasicController {
 	}
 
 	@GetMapping
-	public List<Item> getAll() {
-		return this.itemsService.listAll();
+	public List<Item> getAll(@RequestParam(name = "name", required = false) String name) {
+		if (name == null || name.isEmpty()){
+			return this.itemsService.listAll();
+		}
+		else {
+			return  this.itemsService.listByName(name);
+		}
 	}
 
 	@PostMapping
